@@ -2,22 +2,13 @@
 /**
 @mainpage COP 3330 Project 1
 
-@author Me and Myself
+@author Nick Johnson
 
-Here you should tell us about how your project works.  How to run,
-any special things you have, etc.  Also, explain any non-trivial
-design decisions you make. If you are working with a partner, clearly 
-State what is each persons contribution. You should
-also comment on the stability of your code.  Any big bugs should be listed
-here.  Basically, anything that you think we need to know in general about
-your project should go here.
-
-Any additional comments you want to make can go here.  Did you like the
-project?  Was it too hard, too easy?  My TA smells bad.  Well, you get
-the idea.
-
-This initial documentation here should be removed.
-Or else you loose points.
+Simple program that outputs the highest count of a single character in a string.
+Two for loops; the first runs through each printable ASCII character, the second
+runs through the entire length of the string input by the user.
+Assumes that there is one character with the highest count.
+Accounts for uppercase and lowercase letters.
 
 */
 
@@ -26,8 +17,30 @@ Or else you loose points.
 #include <assert.h>
 #include <string>
 
-int get_max_count(std::string sinput){
-    return 0;
+int get_max_count(std::string sinput)
+{
+    int MaxCount = 0;
+
+    for(char ch = 32; ch < 127; ch++)
+    {
+        int count = 0;
+
+        for(int i = 0; i < sinput.size(); i++)
+        {
+            if(ch == sinput[i])
+            {
+                count++;
+            }
+        }
+
+        if(count > MaxCount)
+        {
+            MaxCount = count;
+        }
+
+    }
+
+    return MaxCount;
 }
 
 int main(int argc, char *argv[]){
