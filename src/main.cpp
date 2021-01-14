@@ -20,23 +20,22 @@ Accounts for uppercase and lowercase letters.
 int get_max_count(std::string sinput)
 {
     int MaxCount = 0;
+    //number to return to main for output, initializes at zero before for loops
 
     for(char ch = 32; ch < 127; ch++)
     {
         int count = 0;
+        //count of current ASCII character, resets to zero for every new run of the loop
 
         for(int i = 0; i < sinput.size(); i++)
+        //runs through the entire string, ups count if a character matches current testing ASCII
         {
             if(ch == sinput[i])
-            {
                 count++;
-            }
         }
 
         if(count > MaxCount)
-        {
             MaxCount = count;
-        }
 
     }
 
